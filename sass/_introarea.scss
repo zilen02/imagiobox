@@ -1,0 +1,13 @@
+.story {
+  grid-column: full-start / col-end 4;
+  padding: 7rem;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+
+  &__text {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 2.3rem;
+  }
+}

@@ -1,0 +1,8 @@
+.subarea {
+  grid-column: col-start 5 / full-end;
+  padding: 7rem;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  margin-top: 8rem;
+}

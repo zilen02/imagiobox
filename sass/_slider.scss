@@ -1,0 +1,14 @@
+.slider {
+  grid-column: full-start / col-end 4;
+  margin-top: 8rem;
+  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

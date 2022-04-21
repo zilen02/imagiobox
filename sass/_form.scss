@@ -1,0 +1,260 @@
+.book-section {
+  padding: 10rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary, 0.8),
+    rgba($color-primary-dark, 0.8)
+  );
+  grid-column: full-start / full-end;
+}
+
+.book {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.8) 100%,
+    transparent 100%
+  );
+  background-size: 100%;
+  border-radius: 5px;
+  height: 52rem;
+  width: 100%;
+
+  &__form {
+    padding: 5rem;
+  }
+}
+
+/* Progressbar */
+.progressbar__main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.progressbar {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  counter-reset: step;
+}
+
+.progressbar::before,
+.progress {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #dcdcdc;
+  z-index: 1;
+}
+
+.progress {
+  background-color: $color-primary;
+  width: 0%;
+  transition: 0.3s;
+}
+
+.progress-step {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  z-index: 1000;
+}
+
+.progress-step::before {
+  counter-increment: step;
+  content: counter(step);
+}
+
+.progress-step::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.85rem;
+  color: #666;
+  font-size: 1.4rem;
+}
+
+.progress-step-active {
+  background-color: $color-primary;
+  color: #f3f3f3;
+}
+
+// <- FORM ->
+.form {
+  width: clamp(320px, 30%, 430px);
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 0.35rem;
+  padding: 1.5rem;
+}
+
+.form-step {
+  display: none;
+  transform-origin: top;
+  animation: animate 0.5s;
+}
+
+// .form-step-active {
+//   display: block;
+// }
+
+.input-group {
+  margin: 2rem 0;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+/* Button */
+.btns-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem;
+  display: block;
+  text-decoration: none;
+  background-color: $color-primary;
+  color: #f3f3f3;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px $color-primary;
+}
+
+/* Custom css */
+
+.heading-form {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form-step {
+  display: none;
+}
+
+.radio-hide {
+  display: none;
+}
+
+.form-subcrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 2rem;
+  margin: 3rem;
+
+  &__button {
+    display: flex;
+  }
+}
+
+.form-age input[type="radio"]:checked + label {
+  background-color: $color-primary;
+  color: $color-grey-light-1;
+}
+
+.form-subcrip input[type="radio"]:checked + label {
+  background-color: $color-primary;
+  color: $color-grey-light-1;
+}
+
+.form-age {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
+  margin: 3rem;
+
+  &__radio {
+    text-align: center;
+    border: 2px solid $color-primary;
+    padding: 2rem;
+    font-size: 2rem;
+    border-radius: 0.4rem;
+    color: $color-grey-dark-2;
+    transition: all 0.2s;
+
+    &__head {
+      font-weight: 600;
+    }
+  }
+  &__radio:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
+  }
+}
+
+.form__btn {
+  margin: 1rem;
+}
+
+.form-nameform {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    padding: 1rem;
+    width: 70%;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+  }
+  &__label {
+    font-size: 1.6rem;
+  }
+  &__heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.form-finalbuy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  margin: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-current {
+  display: none;
+}
+
+.form-current-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
